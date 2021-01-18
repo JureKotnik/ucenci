@@ -23,5 +23,18 @@ namespace ucenci
             f1.ShowDialog();
             this.Close();
         }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String a = comboBox1.Text;
+
+            if(a == "Kraji")
+            {
+                Addkraj f4 = new Addkraj();
+                f4.ShowDialog();
+                this.Close();
+            }
+         
+        }
     }
 }
