@@ -103,6 +103,12 @@
     <Compile Include="Brisanje_izbor.Designer.cs">
       <DependentUpon>Brisanje_izbor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Brisanje_kraji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Brisanje_kraji.Designer.cs">
+      <DependentUpon>Brisanje_kraji.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dijakics.cs">
       <SubType>Form</SubType>
     </Compile>
