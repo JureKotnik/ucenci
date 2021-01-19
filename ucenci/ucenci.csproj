@@ -150,6 +150,9 @@
     <EmbeddedResource Include="Brisanje_izbor.resx">
       <DependentUpon>Brisanje_izbor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Brisanje_kraji.resx">
+      <DependentUpon>Brisanje_kraji.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dijakics.resx">
       <DependentUpon>Dijakics.cs</DependentUpon>
     </EmbeddedResource>
