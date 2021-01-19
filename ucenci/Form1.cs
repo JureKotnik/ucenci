@@ -31,5 +31,12 @@ namespace ucenci
             f3.ShowDialog();
             this.Close();
         }
+
+        private void brisanjebutton3_Click(object sender, EventArgs e)
+        {
+            Brisanje_izbor f3 = new Brisanje_izbor();
+            f3.ShowDialog();
+            this.Close();
+        }
     }
 }

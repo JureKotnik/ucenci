@@ -97,6 +97,12 @@
     <Compile Include="Addkraj.Designer.cs">
       <DependentUpon>Addkraj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Brisanje_izbor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Brisanje_izbor.Designer.cs">
+      <DependentUpon>Brisanje_izbor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dijakics.cs">
       <SubType>Form</SubType>
     </Compile>

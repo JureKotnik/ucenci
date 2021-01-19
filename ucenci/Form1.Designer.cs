@@ -61,6 +61,7 @@
             this.brisanjebutton3.TabIndex = 3;
             this.brisanjebutton3.Text = "Brisanje";
             this.brisanjebutton3.UseVisualStyleBackColor = true;
+            this.brisanjebutton3.Click += new System.EventHandler(this.brisanjebutton3_Click);
             // 
             // prikazbutton4
             // 
