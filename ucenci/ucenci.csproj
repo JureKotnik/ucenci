@@ -117,6 +117,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddDejavnost.resx">
+      <DependentUpon>AddDejavnost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Addkraj.resx">
       <DependentUpon>Addkraj.cs</DependentUpon>
     </EmbeddedResource>
