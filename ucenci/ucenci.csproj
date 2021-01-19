@@ -109,6 +109,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="naloge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="naloge.Designer.cs">
+      <DependentUpon>naloge.cs</DependentUpon>
+    </Compile>
     <Compile Include="podrocje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="naloge.resx">
+      <DependentUpon>naloge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="podrocje.resx">
       <DependentUpon>podrocje.cs</DependentUpon>

@@ -48,7 +48,7 @@ namespace ucenci
             }
             if (a == "Naloge")
             {
-                Addkraj f4 = new Addkraj();
+                naloge f4 = new naloge();
                 f4.ShowDialog();
                 this.Close();
             }
