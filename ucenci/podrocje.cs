@@ -34,7 +34,31 @@ namespace ucenci
                 f4.ShowDialog();
                 this.Close();
             }
-         
+            if (a == "Dejavnosti")
+            {
+                AddDejavnost f5 = new AddDejavnost();
+                f5.ShowDialog();
+                this.Close();
+            }
+            if (a == "Dijaki")
+            {
+                Addkraj f4 = new Addkraj();
+                f4.ShowDialog();
+                this.Close();
+            }
+            if (a == "Naloge")
+            {
+                Addkraj f4 = new Addkraj();
+                f4.ShowDialog();
+                this.Close();
+            }
+            if (a == "Uporabniki")
+            {
+                Addkraj f4 = new Addkraj();
+                f4.ShowDialog();
+                this.Close();
+            }
+
         }
     }
 }

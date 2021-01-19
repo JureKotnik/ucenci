@@ -85,6 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDejavnost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDejavnost.Designer.cs">
+      <DependentUpon>AddDejavnost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Addkraj.cs">
       <SubType>Form</SubType>
     </Compile>
