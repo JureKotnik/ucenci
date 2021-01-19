@@ -42,7 +42,7 @@ namespace ucenci
             }
             if (a == "Dijaki")
             {
-                Addkraj f4 = new Addkraj();
+                Dijakics f4 = new Dijakics();
                 f4.ShowDialog();
                 this.Close();
             }

@@ -97,6 +97,12 @@
     <Compile Include="Addkraj.Designer.cs">
       <DependentUpon>Addkraj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dijakics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dijakics.Designer.cs">
+      <DependentUpon>Dijakics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
