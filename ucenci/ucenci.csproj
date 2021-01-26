@@ -85,34 +85,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDejavnost.cs">
+    <Compile Include="Brisanje_dijaki.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDejavnost.Designer.cs">
+    <Compile Include="Brisanje_dijaki.Designer.cs">
+      <DependentUpon>Brisanje_dijaki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dodajanje\AddDejavnost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dodajanje\AddDejavnost.Designer.cs">
       <DependentUpon>AddDejavnost.cs</DependentUpon>
     </Compile>
-    <Compile Include="Addkraj.cs">
+    <Compile Include="Dodajanje\Addkraj.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Addkraj.Designer.cs">
+    <Compile Include="Dodajanje\Addkraj.Designer.cs">
       <DependentUpon>Addkraj.cs</DependentUpon>
     </Compile>
-    <Compile Include="Brisanje_izbor.cs">
+    <Compile Include="Brisanje\Brisanje_izbor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Brisanje_izbor.Designer.cs">
+    <Compile Include="Brisanje\Brisanje_izbor.Designer.cs">
       <DependentUpon>Brisanje_izbor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Brisanje_kraji.cs">
+    <Compile Include="Brisanje\Brisanje_kraji.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Brisanje_kraji.Designer.cs">
+    <Compile Include="Brisanje\Brisanje_kraji.Designer.cs">
       <DependentUpon>Brisanje_kraji.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dijakics.cs">
+    <Compile Include="Dodajanje\Dijakics.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dijakics.Designer.cs">
+    <Compile Include="Dodajanje\Dijakics.Designer.cs">
       <DependentUpon>Dijakics.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -121,51 +127,51 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="naloge.cs">
+    <Compile Include="Dodajanje\naloge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="naloge.Designer.cs">
+    <Compile Include="Dodajanje\naloge.Designer.cs">
       <DependentUpon>naloge.cs</DependentUpon>
     </Compile>
-    <Compile Include="podrocje.cs">
+    <Compile Include="Dodajanje\podrocje.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="podrocje.Designer.cs">
+    <Compile Include="Dodajanje\podrocje.Designer.cs">
       <DependentUpon>podrocje.cs</DependentUpon>
     </Compile>
-    <Compile Include="Prikaz.cs">
+    <Compile Include="Prikaz\Prikaz.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Prikaz.Designer.cs">
+    <Compile Include="Prikaz\Prikaz.Designer.cs">
       <DependentUpon>Prikaz.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddDejavnost.resx">
+    <EmbeddedResource Include="Dodajanje\AddDejavnost.resx">
       <DependentUpon>AddDejavnost.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Addkraj.resx">
+    <EmbeddedResource Include="Dodajanje\Addkraj.resx">
       <DependentUpon>Addkraj.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Brisanje_izbor.resx">
+    <EmbeddedResource Include="Brisanje\Brisanje_izbor.resx">
       <DependentUpon>Brisanje_izbor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Brisanje_kraji.resx">
+    <EmbeddedResource Include="Brisanje\Brisanje_kraji.resx">
       <DependentUpon>Brisanje_kraji.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dijakics.resx">
+    <EmbeddedResource Include="Dodajanje\Dijakics.resx">
       <DependentUpon>Dijakics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="naloge.resx">
+    <EmbeddedResource Include="Dodajanje\naloge.resx">
       <DependentUpon>naloge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="podrocje.resx">
+    <EmbeddedResource Include="Dodajanje\podrocje.resx">
       <DependentUpon>podrocje.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Prikaz.resx">
+    <EmbeddedResource Include="Prikaz\Prikaz.resx">
       <DependentUpon>Prikaz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
