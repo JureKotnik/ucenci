@@ -85,12 +85,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Brisanje_dijaki.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Brisanje_dijaki.Designer.cs">
-      <DependentUpon>Brisanje_dijaki.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dodajanje\AddDejavnost.cs">
       <SubType>Form</SubType>
     </Compile>
