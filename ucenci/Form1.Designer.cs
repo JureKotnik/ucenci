@@ -52,6 +52,7 @@
             this.Urejanjebutton.TabIndex = 2;
             this.Urejanjebutton.Text = "Urejanje";
             this.Urejanjebutton.UseVisualStyleBackColor = true;
+            this.Urejanjebutton.Click += new System.EventHandler(this.Urejanjebutton_Click);
             // 
             // brisanjebutton3
             // 

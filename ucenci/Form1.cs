@@ -38,5 +38,12 @@ namespace ucenci
             f3.ShowDialog();
             this.Close();
         }
+
+        private void Urejanjebutton_Click(object sender, EventArgs e)
+        {
+            Urejanje f = new Urejanje();
+            f.ShowDialog();
+            this.Close();
+        }
     }
 }

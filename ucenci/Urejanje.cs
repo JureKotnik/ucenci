@@ -16,5 +16,39 @@ namespace ucenci
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String a = comboBox1.Text;
+
+            if (a == "Kraji")
+            {
+                krajgroupBox1.Visible = true;
+                dejavnostgroupBox1.Visible = false;
+                dijakgroupBox1.Visible = false;
+                nalogegroupBox1.Visible = false;
+            }
+            if (a == "Dejavnosti")
+            {
+                krajgroupBox1.Visible = false;
+                dejavnostgroupBox1.Visible = true;
+                dijakgroupBox1.Visible = false;
+                nalogegroupBox1.Visible = false;
+            }
+            if (a == "Dijaki")
+            {
+                krajgroupBox1.Visible = false;
+                dejavnostgroupBox1.Visible = false;
+                dijakgroupBox1.Visible = true;
+                nalogegroupBox1.Visible = false;
+            }
+            if (a == "Naloge")
+            {
+                krajgroupBox1.Visible = false;
+                dejavnostgroupBox1.Visible = false;
+                dijakgroupBox1.Visible = false;
+                nalogegroupBox1.Visible = true;
+            }
+        }
     }
 }
