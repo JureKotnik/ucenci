@@ -29,7 +29,7 @@ namespace ucenci
 
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kraji", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_kraj();", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
@@ -48,7 +48,7 @@ namespace ucenci
 
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_avtomobili();", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_dejavnost();", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
@@ -70,7 +70,7 @@ namespace ucenci
 
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM Dijaki", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_dijak();", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
@@ -96,7 +96,7 @@ namespace ucenci
 
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kraji", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_naloge();", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
@@ -116,7 +116,7 @@ namespace ucenci
 
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kraji", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_uporabniki();", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
