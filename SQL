@@ -1,4 +1,5 @@
 Dejavnost spremembe
+
 CREATE OR REPLACE FUNCTION dejavnost_spremembe()
   RETURNS TRIGGER 
   LANGUAGE plpgsql
@@ -15,6 +16,7 @@ END;
 $$
 
 Trigger
+
 CREATE TRIGGER dejavnost_spreminjanje
 BEFORE UPDATE
 ON Dejavnosti
