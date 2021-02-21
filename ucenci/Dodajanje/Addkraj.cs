@@ -15,11 +15,12 @@ namespace ucenci
     {
         public Addkraj()
         {
-       
+            InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             podrocje f1 = new podrocje();
             f1.ShowDialog();
             this.Close();

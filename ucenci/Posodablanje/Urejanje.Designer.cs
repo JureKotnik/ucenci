@@ -66,6 +66,7 @@ namespace ucenci
             this.label14 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.dijakgroupBox1.SuspendLayout();
             this.dejavnostgroupBox1.SuspendLayout();
             this.krajgroupBox1.SuspendLayout();
@@ -412,11 +413,22 @@ namespace ucenci
             this.textBox13.Size = new System.Drawing.Size(100, 22);
             this.textBox13.TabIndex = 48;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(937, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 52;
+            this.button3.Text = "Nazaj";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Urejanje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 389);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.nalogegroupBox1);
             this.Controls.Add(this.krajgroupBox1);
             this.Controls.Add(this.dejavnostgroupBox1);
@@ -426,6 +438,7 @@ namespace ucenci
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Name = "Urejanje";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Urejanje";
             this.dijakgroupBox1.ResumeLayout(false);
             this.dijakgroupBox1.PerformLayout();
@@ -479,5 +492,6 @@ namespace ucenci
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -20,6 +20,7 @@ namespace ucenci
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Form1 f1 = new Form1();
             f1.ShowDialog();
             this.Close();
@@ -32,7 +33,7 @@ namespace ucenci
             {
                 bool opravil = checkBox1.Checked;
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("INSERT INTO Naloge (ime,opravil,opis) VALUES(" + textBox1.Text + "," + opravil + "," +listBox1.Text + ")", con);
+                NpgsqlCommand com = new NpgsqlCommand("INSERT INTO Naloge (ime,opravil,opis) VALUES(" + textBox1.Text + "," + opravil + "," +textBox2.Text + ")", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 con.Close();
             }
