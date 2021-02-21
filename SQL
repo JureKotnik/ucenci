@@ -1,1 +1,22 @@
+Dejavnost spremembe
+CREATE OR REPLACE FUNCTION dejavnost_spremembe()
+  RETURNS TRIGGER 
+  LANGUAGE plpgsql
+  AS
+$$
+BEGIN
+	IF NEW.ime <> OLD.ime THEN
+		 INSERT INTO Dejavnosti(ID,ime,sprememba)
+		 VALUES(OLD.id,OLD.last_name,now());
+	END IF;
 
+	RETURN NEW;
+END;
+$$
+
+Trigger
+CREATE TRIGGER dejavnost_spreminjanje
+BEFORE UPDATE
+ON Dejavnosti
+FOR EACH ROW
+EXECUTE PROCEDURE dejavnost_spremembe();
