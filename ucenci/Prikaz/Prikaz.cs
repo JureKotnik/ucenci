@@ -48,7 +48,7 @@ namespace ucenci
 
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM Dejavnosti", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_avtomobili();", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
