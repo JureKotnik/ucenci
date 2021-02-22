@@ -1,4 +1,4 @@
-Dejavnost spremembe
+Trigger
 
 CREATE OR REPLACE FUNCTION dejavnost_spremembe()
   RETURNS TRIGGER 
@@ -15,10 +15,62 @@ BEGIN
 END;
 $$
 
-Trigger
-
 CREATE TRIGGER dejavnost_spreminjanje
 BEFORE UPDATE
 ON Dejavnosti
 FOR EACH ROW
 EXECUTE PROCEDURE dejavnost_spremembe();
+
+Podprogram SELECT
+
+CREATE FUNCTION izberi_dejavnost()
+RETURNS void AS
+$$
+BEGIN 
+SELECT * FROM Dejavnosti;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+
+CREATE FUNCTION izberi_kraj()
+RETURNS void AS
+$$
+BEGIN 
+SELECT * FROM Kraji;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+
+CREATE FUNCTION izberi_naloge()
+RETURNS void AS
+$$
+BEGIN 
+SELECT * FROM Naloge;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+
+CREATE FUNCTION izberi_dijak()
+RETURNS void AS
+$$
+BEGIN 
+SELECT * FROM Dijaki;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+
+CREATE FUNCTION izberi_uporabniki()
+RETURNS void AS
+$$
+BEGIN 
+SELECT * FROM Uporabniki;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+INSERT
+
