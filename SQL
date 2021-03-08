@@ -72,5 +72,48 @@ END;
 $$
 LANGUAGE 'plpgsql';
 
-INSERT
+UPDATE
 
+CREATE FUNCTION update_kraj(t INTEGER,i VARCHAR(60),p INTEGER,o TEXT)
+RETURNS void AS
+$$
+BEGIN 
+ UPDATE kraji
+ SET ime = i, postna_stevilka = p, opis = o
+ WHERE id=t; 
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE FUNCTION update_dejavnost(t INTEGER,i VARCHAR(60),d timestamp,k timestamp,op text)
+RETURNS void AS
+$$
+BEGIN 
+ UPDATE dejavnosti
+ SET ime = i, datum_zacetek = d, datum_konec = k, opis = op, sprememba = timestamp
+ WHERE id=t; 
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE FUNCTION update_dijaki(q INTEGER,i VARCHAR(60),p VARCHAR(60),d VARCHAR(60),t VARCHAR(60),e VARCHAR(60),o TEXT)
+RETURNS void AS
+$$
+BEGIN 
+ UPDATE dijaki
+ SET ime = i, priimerk = p, datum_roj = d, telefon = t, email = e, opis = 0
+ WHERE id=q; 
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE FUNCTION update_naloge(q INTEGER,i VARCHAR(60),o BOOL,op TEXT)
+RETURNS void AS
+$$
+BEGIN 
+ UPDATE naloge
+ SET ime = i, opravil = o, opis = op
+ WHERE id=q; 
+END;
+$$
+LANGUAGE 'plpgsql';
