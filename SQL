@@ -106,3 +106,14 @@ BEGIN
 END;
 $$
 LANGUAGE 'plpgsql';
+
+CREATE FUNCTION update_naloge(q INTEGER,i VARCHAR(60),o BOOL,op TEXT)
+RETURNS void AS
+$$
+BEGIN 
+ UPDATE naloge
+ SET ime = i, opravil = o, opis = op
+ WHERE id=q; 
+END;
+$$
+LANGUAGE 'plpgsql';
