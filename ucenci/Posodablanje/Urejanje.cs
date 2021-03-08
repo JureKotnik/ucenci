@@ -31,8 +31,9 @@ namespace ucenci
 
                 using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
                 {
+                    int p = Convert.ToInt32(textBox11.Text);
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT update_kraj();", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT update_kraj("+textBox12.Text+","+p+");", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     con.Close();
                 }
@@ -47,7 +48,7 @@ namespace ucenci
                 using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
                 {
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT update_dejavnost();", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT update_dejavnost("+textBox9.Text+ "," + textBox8.Text + "," + textBox7.Text + "," + textBox10.Text + ",);", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     con.Close();
                 }
@@ -62,7 +63,7 @@ namespace ucenci
                 using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
                 {
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT update_dijaki();", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT update_dijaki(" + textBox1.Text + "," + textBox2.Text + "," + textBox3.Text + "," + textBox4.Text + "," + textBox6.Text + "," + textBox5.Text + ",);", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     con.Close();
                 }
@@ -77,7 +78,7 @@ namespace ucenci
                 using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
                 {
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT naloge_update();", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT update_naloge(" + textBox13.Text + "," + checkBox1.Text + "," + textBox14.Text + ",);", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     con.Close();
                 }
