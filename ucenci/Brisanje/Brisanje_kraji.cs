@@ -186,7 +186,7 @@ namespace ucenci
                     string text = listBox1.GetItemText(listBox1.SelectedItem);
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("DELETE * FROM kraji WHERE ime ="+text+"", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_kraji()", con);
                     NpgsqlDataReader reader = com.ExecuteReader();  
                     con.Close();
                 }
@@ -202,7 +202,7 @@ namespace ucenci
                     string text = listBox1.GetItemText(listBox1.SelectedItem);
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("DELETE * FROM Dejavnosti WHERE ime =" + text + "", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_dejavnosti()", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     con.Close();
                 }
@@ -217,7 +217,7 @@ namespace ucenci
                     string text = listBox1.GetItemText(listBox1.SelectedItem);
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("DELETE * FROM Dijaki WHERE ime =" + text + "", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_dijaki()", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     con.Close();
                 }
@@ -232,7 +232,7 @@ namespace ucenci
                     string text = listBox1.GetItemText(listBox1.SelectedItem);
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("DELETE * FROM Naloge WHERE ime =" + text + "", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_naloge()", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     con.Close();
                 }
@@ -247,7 +247,7 @@ namespace ucenci
                     string text = listBox1.GetItemText(listBox1.SelectedItem);
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("DELETE * FROM Uporabniki WHERE ime =" + text + "", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_uporabniki()", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     con.Close();
                 }
