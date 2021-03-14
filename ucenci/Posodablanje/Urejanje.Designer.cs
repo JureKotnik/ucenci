@@ -67,6 +67,7 @@ namespace ucenci
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.dijakgroupBox1.SuspendLayout();
             this.dejavnostgroupBox1.SuspendLayout();
             this.krajgroupBox1.SuspendLayout();
@@ -113,6 +114,7 @@ namespace ucenci
             this.button2.TabIndex = 28;
             this.button2.Text = "Spremeni";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dijakgroupBox1
             // 
@@ -423,11 +425,21 @@ namespace ucenci
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(15, 378);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(997, 212);
+            this.listBox1.TabIndex = 53;
+            // 
             // Urejanje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 389);
+            this.ClientSize = new System.Drawing.Size(1024, 596);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.nalogegroupBox1);
             this.Controls.Add(this.krajgroupBox1);
@@ -493,5 +505,6 @@ namespace ucenci
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
