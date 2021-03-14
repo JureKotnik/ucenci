@@ -117,3 +117,50 @@ BEGIN
 END;
 $$
 LANGUAGE 'plpgsql';
+
+DELETE
+
+CREATE FUNCTION clean_kraji(i INTEGER)
+RETURNS void AS
+$$
+BEGIN DELETE FROM kraji
+WHERE id=i;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE FUNCTION clean_dejavnosti(i INTEGER)
+RETURNS void AS
+$$
+BEGIN DELETE FROM dejavnosti
+WHERE id=i;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE FUNCTION clean_dijaki(i INTEGER)
+RETURNS void AS
+$$
+BEGIN DELETE FROM dijaki
+WHERE id=i;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE FUNCTION clean_naloge(i INTEGER)
+RETURNS void AS
+$$
+BEGIN DELETE FROM naloge
+WHERE id=i;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+CREATE FUNCTION clean_uporaniki(i INTEGER)
+RETURNS void AS
+$$
+BEGIN DELETE FROM uporabniki
+WHERE id=i;
+END;
+$$
+LANGUAGE 'plpgsql';
