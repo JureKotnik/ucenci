@@ -17,7 +17,10 @@ namespace ucenci
         {
             InitializeComponent();
         }
-
+        public static String GetTimestamp(DateTime value)
+        {
+            return value.ToString("yyyyMMddHHmmssffff");
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -28,12 +31,14 @@ namespace ucenci
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int a = Convert.ToInt32(textBox1.Text);
+            String timeStamp = GetTimestamp(DateTime.Now);
+           
             
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+            using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
             {
+               
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("INSERT INTO Dejavnosti (ime,datum_zacetek,datum_konec,opis) VALUES(" + textBox1.Text + "," + textBox2.Text + "," + textBox3.Text + "," + opistextBox4.Text + ")", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT add_dejavnost("+textBox1.Text+ "," +timeStamp+ "," + textBox3.Text + "," + opistextBox4.Text + ");", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 con.Close();
             }

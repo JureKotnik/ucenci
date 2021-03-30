@@ -120,7 +120,7 @@ namespace ucenci
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(83, 135);
+            this.button2.Location = new System.Drawing.Point(83, 264);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
@@ -131,15 +131,16 @@ namespace ucenci
             // opistextBox4
             // 
             this.opistextBox4.Location = new System.Drawing.Point(83, 97);
+            this.opistextBox4.Multiline = true;
             this.opistextBox4.Name = "opistextBox4";
-            this.opistextBox4.Size = new System.Drawing.Size(100, 22);
+            this.opistextBox4.Size = new System.Drawing.Size(490, 161);
             this.opistextBox4.TabIndex = 10;
             // 
             // AddDejavnost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 176);
+            this.ClientSize = new System.Drawing.Size(585, 353);
             this.Controls.Add(this.opistextBox4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

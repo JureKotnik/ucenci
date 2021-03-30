@@ -23,18 +23,20 @@ namespace ucenci
             String a = comboBox1.Text;
             if (a == "Kraji")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
 
 
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_kraj();", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT ime, postna_stevilka FROM kraji;", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
-                        string ime = reader.GetString(2);
-                        listBox1.Items.Add(ime);
+                        string ime = reader.GetString(0);
+                        string postna_stevilka = reader.GetString(0);
+                        listBox1.Items.Add(string.Format(ime, postna_stevilka));
+                        listBox1.Items.Add(postna_stevilka);
                     }
                     con.Close();
                 }
@@ -42,20 +44,20 @@ namespace ucenci
             
             if (a == "Dejavnosti")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
 
 
 
                     con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_dejavnost();", con);
+                    NpgsqlCommand com = new NpgsqlCommand("SELECT ime,datum_zacetek,datum_konec FROM dejavnosti;", con);
                     NpgsqlDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
-                        string ime = reader.GetString(2);
-                        string datum_zacetek = reader.GetString(3);
-                        string datum_konec = reader.GetString(4);
-                        listBox1.Items.Add(ime);
+                        string ime = reader.GetString(0);
+                        string datum_zacetek = reader.GetString(0);
+                        string datum_konec = reader.GetString(0);
+                        listBox1.Items.Add(string.Format(ime, datum_zacetek, datum_konec));
                         listBox1.Items.Add(datum_zacetek);
                         listBox1.Items.Add(datum_konec);
                     }
@@ -64,7 +66,7 @@ namespace ucenci
             }
             if (a == "Dijaki")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
 
 
@@ -90,7 +92,7 @@ namespace ucenci
             }
             if (a == "Naloge")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
 
 
@@ -110,7 +112,7 @@ namespace ucenci
             }
             if (a == "Uporabniki")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
 
 
