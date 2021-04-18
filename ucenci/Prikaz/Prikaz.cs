@@ -23,117 +23,123 @@ namespace ucenci
             String a = comboBox1.Text;
             if (a == "Kraji")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
+
+                using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
+                    listBox1.Items.Clear();
 
-
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT ime, postna_stevilka FROM kraji;", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM kraji; ", conn))
                     {
-                        string ime = reader.GetString(0);
-                        string postna_stevilka = reader.GetString(0);
-                        listBox1.Items.Add(string.Format(ime, postna_stevilka));
-                        listBox1.Items.Add(postna_stevilka);
+
+                        conn.Open();
+
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+
+                            listBox1.Items.Add(reader["ID"].ToString());
+                            listBox1.Items.Add(string.Format("{0} | {1} | {2} ",
+                                reader["ime"].ToString(),
+                                reader["postna_stevilka"].ToString(),
+                                reader["opis"].ToString()));
+
+
+
+                        }
+                        conn.Close();
                     }
-                    con.Close();
                 }
             }
             
             if (a == "Dejavnosti")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
+                using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
 
+                    listBox1.Items.Clear();
 
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT ime,datum_zacetek,datum_konec FROM dejavnosti;", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM dejavnosti; ", conn))
                     {
-                        string ime = reader.GetString(0);
-                        string datum_zacetek = reader.GetString(0);
-                        string datum_konec = reader.GetString(0);
-                        listBox1.Items.Add(string.Format(ime, datum_zacetek, datum_konec));
-                        listBox1.Items.Add(datum_zacetek);
-                        listBox1.Items.Add(datum_konec);
+                        conn.Open();
+
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            listBox1.Items.Add(reader["ID"].ToString());
+                            listBox1.Items.Add(string.Format("{0} | {1} | {2} | {3} | {4} ",
+                                reader["ime"].ToString(),
+                                reader["datum_zacetek"].ToString(),
+                                reader["opis"].ToString(),
+                                reader["sprememba"].ToString(),
+                                reader["datum_konec"].ToString()));
+
+
+
+                        }
+                        conn.Close();
                     }
-                    con.Close();
                 }
             }
             if (a == "Dijaki")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
+                using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
-
-
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_dijak();", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
+                    listBox1.Items.Clear();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM dijaki; ", conn))
                     {
-                        string ime = reader.GetString(2);
-                        string priimek = reader.GetString(3);
-                        string datum_roj = reader.GetString(4);
-                        string telefon = reader.GetString(5);
-                        string email = reader.GetString(6);
-                        listBox1.Items.Add(ime);
-                        listBox1.Items.Add(priimek);
-                        listBox1.Items.Add(datum_roj);
-                        listBox1.Items.Add(telefon);
-                        listBox1.Items.Add(email);
+                        conn.Open();
+
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            listBox1.Items.Add(reader["ID"].ToString());
+                            listBox1.Items.Add(string.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}  ",
+                                reader["ime"].ToString(),
+                                reader["priimek"].ToString(),
+                                reader["telefon"].ToString(),
+                                reader["email"].ToString(),
+                                reader["opis"].ToString(),
+                                reader["kraj_id"].ToString(),
+                                reader["datum_roj"].ToString()));
+
+
+
+                        }
+                        conn.Close();
                     }
-                    con.Close();
                 }
             }
             if (a == "Naloge")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
+                using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
-
-
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_naloge();", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
+                    listBox1.Items.Clear();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM naloge; ", conn))
                     {
-                        string ime = reader.GetString(2);
-                        string Opravil = reader.GetString(3);
-                        listBox1.Items.Add(ime);
-                        listBox1.Items.Add(Opravil);
+                        conn.Open();
+
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            listBox1.Items.Add(reader["ID"].ToString());
+                            listBox1.Items.Add(string.Format("{0} | {1} | {2} |",
+                                reader["ime"].ToString(),
+                                reader["opravil"].ToString(),
+                                reader["opis"].ToString()));
+
+
+
+                        }
+                        conn.Close();
                     }
-                    con.Close();
                 }
             }
             if (a == "Uporabniki")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
+                using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
 
 
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT izberi_uporabniki();", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        string ime = reader.GetString(2);
-                        string priimek = reader.GetString(3);
-                        string email = reader.GetString(4);
-                        string telefon = reader.GetString(5);
-                        string Username = reader.GetString(6);
-                        listBox1.Items.Add(ime);
-                        listBox1.Items.Add(priimek);
-                        listBox1.Items.Add(email);
-                        listBox1.Items.Add(telefon);
-                        listBox1.Items.Add(Username);
-                    }
-                    con.Close();
                 }
             }
         }

@@ -16,13 +16,13 @@ $$LANGUAGE 'plpgsql';
 
 
 
-CREATE OR REPLACE FUNCTION add_dijak (imeR VARCHAR(100), priimekR VARCHAR(100), datum_rojR VARCHAR(100), telefonR VARCHAR(100), emailR VARCHAR(100), opisR TEXT)
+CREATE OR REPLACE FUNCTION add_dijak (imeR VARCHAR(100), priimekR VARCHAR(100), telefonR VARCHAR(100), emailR VARCHAR(100), opisR TEXT, datum_roj VARCHAR(100))
 RETURNS SETOF dijaki AS
 $$
 DECLARE
 	res dijaki%ROWTYPE;
 BEGIN
-	INSERT INTO dijaki (ime, priimek, datum_roj, telefon, email, opis) VALUES (imeR, priimekR, datum_rojR, telefonR, emailR, opisR)
+	INSERT INTO dijaki (ime, priimek, telefon, email, opis, datum_roj) VALUES (imeR, priimekR, telefonR, emailR, opisR, datum_rojR)
 	RETURNING * INTO res;
 	RETURN NEXT res;
 END

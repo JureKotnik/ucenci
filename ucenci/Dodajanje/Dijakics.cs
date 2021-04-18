@@ -29,10 +29,12 @@ namespace ucenci
         private void button2_Click(object sender, EventArgs e)
         {
 
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+            using (NpgsqlConnection con = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
             {
+            
+
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("INSERT INTO Dijaki (ime,priimek,darum_roj,telefon,email,opis) VALUES(" + textBox1.Text + "," + textBox2.Text + "," + textBox3.Text + "," +textBox4.Text + "," + textBox6.Text + "," + textBox5.Text + ")", con);
+                NpgsqlCommand com = new NpgsqlCommand("INSERT INTO dijaki (ime,priimek,telefon,email,kraj_id,opis) VALUES(" + textBox1.Text + "," + textBox2.Text + "," + textBox4.Text + "," + textBox6.Text + "," + textBox5.Text + "," + textBox3.Text + ");", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 con.Close();
             }
