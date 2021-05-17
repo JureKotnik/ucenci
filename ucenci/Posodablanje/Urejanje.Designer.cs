@@ -68,6 +68,9 @@ namespace ucenci
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.dijakgroupBox1.SuspendLayout();
             this.dejavnostgroupBox1.SuspendLayout();
             this.krajgroupBox1.SuspendLayout();
@@ -90,7 +93,6 @@ namespace ucenci
             this.comboBox1.Items.AddRange(new object[] {
             "Dejavnosti",
             "Dijaki",
-            "Kraji",
             "Naloge"});
             this.comboBox1.Location = new System.Drawing.Point(68, 17);
             this.comboBox1.Name = "comboBox1";
@@ -407,6 +409,7 @@ namespace ucenci
             this.checkBox1.TabIndex = 49;
             this.checkBox1.Text = "Opravil";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // textBox13
             // 
@@ -433,12 +436,43 @@ namespace ucenci
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(997, 212);
             this.listBox1.TabIndex = 53;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1229, 315);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.TabIndex = 54;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Z);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1229, 250);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 17);
+            this.label16.TabIndex = 55;
+            this.label16.Text = "label16";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(106, 329);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 41);
+            this.button4.TabIndex = 56;
+            this.button4.Text = "Prikaz";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Urejanje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 596);
+            this.ClientSize = new System.Drawing.Size(1031, 596);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.nalogegroupBox1);
@@ -506,5 +540,8 @@ namespace ucenci
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button4;
     }
 }

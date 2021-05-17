@@ -19,42 +19,11 @@ namespace ucenci
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
-            {
 
-                string a = listBox1.SelectedIndex.ToString();
-
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("DELETE GROM kraji WHERE ime="+a+";", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    string ime = reader.GetString(2);
-                    listBox1.Items.Add(ime);
-                }
-                con.Close();
-            }
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
-            {
-
-
-
-                con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kraji", con);
-                NpgsqlDataReader reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    string ime = reader.GetString(2);
-                    listBox1.Items.Add(ime);
-                }
-                con.Close();
-            }
+     
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -62,196 +31,118 @@ namespace ucenci
             String a = comboBox1.Text;
             if (a == "Kraji")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+
+                using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
+                    listBox1.Items.Clear();
 
-
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kraji", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM kraji; ", conn))
                     {
-                        string ime = reader.GetString(2);
-                        listBox1.Items.Add(ime);
+
+                        conn.Open();
+
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+
+                            listBox1.Items.Add(reader["ID"].ToString());
+                            listBox1.Items.Add(string.Format("{0} | {1} | {2} ",
+                                reader["ime"].ToString(),
+                                reader["postna_stevilka"].ToString(),
+                                reader["opis"].ToString()));
+
+
+
+                        }
+                        conn.Close();
                     }
-                    con.Close();
                 }
             }
 
             if (a == "Dejavnosti")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+                using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
 
+                    listBox1.Items.Clear();
 
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM Dejavnosti", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM dejavnosti; ", conn))
                     {
-                        string ime = reader.GetString(2);
-                        string datum_zacetek = reader.GetString(3);
-                        string datum_konec = reader.GetString(4);
-                        listBox1.Items.Add(ime);
-                        listBox1.Items.Add(datum_zacetek);
-                        listBox1.Items.Add(datum_konec);
+                        conn.Open();
+
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            listBox1.Items.Add(reader["ID"].ToString());
+                            listBox1.Items.Add(string.Format("{0} | {1} | {2} | {3} | {4} ",
+                                reader["ime"].ToString(),
+                                reader["datum_zacetek"].ToString(),
+                                reader["opis"].ToString(),
+                                reader["sprememba"].ToString(),
+                                reader["datum_konec"].ToString()));
+
+
+
+                        }
+                        conn.Close();
                     }
-                    con.Close();
                 }
             }
             if (a == "Dijaki")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+                using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
-
-
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM Dijaki", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
+                    listBox1.Items.Clear();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM dijaki; ", conn))
                     {
-                        string ime = reader.GetString(2);
-                        string priimek = reader.GetString(3);
-                        string datum_roj = reader.GetString(4);
-                        string telefon = reader.GetString(5);
-                        string email = reader.GetString(6);
-                        listBox1.Items.Add(ime);
-                        listBox1.Items.Add(priimek);
-                        listBox1.Items.Add(datum_roj);
-                        listBox1.Items.Add(telefon);
-                        listBox1.Items.Add(email);
+                        conn.Open();
+
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            listBox1.Items.Add(reader["ID"].ToString());
+                            listBox1.Items.Add(string.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}  ",
+                                reader["ime"].ToString(),
+                                reader["priimek"].ToString(),
+                                reader["telefon"].ToString(),
+                                reader["email"].ToString(),
+                                reader["opis"].ToString(),
+                                reader["kraj_id"].ToString(),
+                                reader["datum_roj"].ToString()));
+
+
+
+                        }
+                        conn.Close();
                     }
-                    con.Close();
                 }
             }
             if (a == "Naloge")
             {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
+                using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
                 {
-
-
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kraji", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
+                    listBox1.Items.Clear();
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM naloge; ", conn))
                     {
-                        string ime = reader.GetString(2);
-                        string Opravil = reader.GetString(3);
-                        listBox1.Items.Add(ime);
-                        listBox1.Items.Add(Opravil);
+                        conn.Open();
+
+                        NpgsqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            listBox1.Items.Add(reader["ID"].ToString());
+                            listBox1.Items.Add(string.Format("{0} | {1} | {2} |",
+                                reader["ime"].ToString(),
+                                reader["opravil"].ToString(),
+                                reader["opis"].ToString()));
+
+
+
+                        }
+                        conn.Close();
                     }
-                    con.Close();
-                }
-            }
-            if (a == "Uporabniki")
-            {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
-                {
-
-
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM kraji", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        string ime = reader.GetString(2);
-                        string priimek = reader.GetString(3);
-                        string email = reader.GetString(4);
-                        string telefon = reader.GetString(5);
-                        string Username = reader.GetString(6);
-                        listBox1.Items.Add(ime);
-                        listBox1.Items.Add(priimek);
-                        listBox1.Items.Add(email);
-                        listBox1.Items.Add(telefon);
-                        listBox1.Items.Add(Username);
-                    }
-                    con.Close();
-                }
-            }
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            String a = comboBox1.Text;
-            if (a == "Kraji")
-            {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
-                {
-
-                    string text = listBox1.GetItemText(listBox1.SelectedItem);
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_kraji()", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();  
-                    con.Close();
                 }
             }
 
-            if (a == "Dejavnosti")
-            {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
-                {
-
-
-
-                    string text = listBox1.GetItemText(listBox1.SelectedItem);
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_dejavnosti()", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    con.Close();
-                }
-            }
-            if (a == "Dijaki")
-            {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
-                {
-
-
-
-                    string text = listBox1.GetItemText(listBox1.SelectedItem);
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_dijaki()", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    con.Close();
-                }
-            }
-            if (a == "Naloge")
-            {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
-                {
-
-
-
-                    string text = listBox1.GetItemText(listBox1.SelectedItem);
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_naloge()", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    con.Close();
-                }
-            }
-            if (a == "Uporabniki")
-            {
-                using (NpgsqlConnection con = new NpgsqlConnection("Server=ec2-54-78-127-245.eu-west-1.compute.amazonaws.com;" + "Password=0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; Database=dbqabpjav305q8;"))
-                {
-
-
-
-                    string text = listBox1.GetItemText(listBox1.SelectedItem);
-
-                    con.Open();
-                    NpgsqlCommand com = new NpgsqlCommand("SELECT clean_uporabniki()", con);
-                    NpgsqlDataReader reader = com.ExecuteReader();
-                    con.Close();
-                }
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -260,6 +151,117 @@ namespace ucenci
             Form1 f1 = new Form1();
             f1.ShowDialog();
             this.Close();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            String a = comboBox1.Text;
+            if (a == "Kraji")
+            {
+                try
+                {
+                    using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
+                    {
+                        listBox1.Items.Clear();
+                        int l = Convert.ToInt32(label2.Text);
+                        using (var cmd = new NpgsqlCommand("DELETE FROM kraji WHERE id='" + l + "';", conn))
+                        {
+                            conn.Open();
+                            NpgsqlDataReader reader = cmd.ExecuteReader();
+                            conn.Close();
+                        }
+                    }
+                    MessageBox.Show("Uspešno ste odstranili Kraj");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Kraja niste odstranili uspešno");
+                }
+           
+            }
+            if (a == "Dejavnosti")
+            {
+                try
+                {
+                    using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
+                    {
+                        listBox1.Items.Clear();
+                        int l = Convert.ToInt32(label2.Text);
+                        using (var cmd = new NpgsqlCommand("DELETE FROM dejavnosti WHERE id='" + l + "';", conn))
+                        {
+                            conn.Open();
+                            NpgsqlDataReader reader = cmd.ExecuteReader();
+                            conn.Close();
+                        }
+                    }
+                    MessageBox.Show("Uspešno ste odstranili Dejavnost");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Dejavnosti niste odstranili uspešno");
+                }
+            }
+            if (a == "Dijaki")
+            {
+                try
+                {
+                    using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
+                    {
+                        listBox1.Items.Clear();
+                        int l = Convert.ToInt32(label2.Text);
+                        using (var cmd = new NpgsqlCommand("DELETE FROM dijaki WHERE id='" + l + "';", conn))
+                        {
+                            conn.Open();
+                            NpgsqlDataReader reader = cmd.ExecuteReader();
+                            conn.Close();
+                        }
+                    }
+                    MessageBox.Show("Uspešno ste odstranili Dijaka");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Dijaka niste odstranili uspešno");
+                }
+            }
+            if (a == "Naloge")
+            {
+                try
+                {
+                    using (NpgsqlConnection conn = new NpgsqlConnection("Server = ec2-54-78-127-245.eu-west-1.compute.amazonaws.com; Port = 5432; Database = dbqabpjav305q8; User Id = lofhqfjluzqqyf; Password = 0f97f004987c14fa398b21069e1d5ecacc20742baa4c9265ad383d987721990e; sslmode=Require; Trust Server Certificate=true;"))
+                    {
+                        listBox1.Items.Clear();
+                        int l = Convert.ToInt32(label2.Text);
+                        using (var cmd = new NpgsqlCommand("DELETE FROM naloge WHERE id='" + l + "';", conn))
+                        {
+                            conn.Open();
+                            NpgsqlDataReader reader = cmd.ExecuteReader();
+                            conn.Close();
+                        }
+                    }
+                    MessageBox.Show("Uspešno ste odstranili Nalogo");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Naloge niste odstranili uspešno");
+                }
+            }
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                label2.Text = listBox1.SelectedItem.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                label2.Text = "0";
+            }
         }
     }
 }

@@ -151,5 +151,10 @@ namespace ucenci
             f1.ShowDialog();
             this.Close();
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
